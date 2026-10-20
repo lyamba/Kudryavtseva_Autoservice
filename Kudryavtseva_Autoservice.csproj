@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,9 +67,57 @@
     <Compile Include="AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientService.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentByService.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KudryavtsevaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KudryavtsevaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KudryavtsevaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KudryavtsevaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="Manufacturer.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPhoto.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSale.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePhoto.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.cs">
+      <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -101,6 +158,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="KudryavtsevaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KudryavtsevaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KudryavtsevaModel.edmx.diagram">
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\service_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KudryavtsevaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KudryavtsevaModel.Context.cs</LastGenOutput>
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="KudryavtsevaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+      <LastGenOutput>KudryavtsevaModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
