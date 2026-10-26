@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Kudryavtseva_Autoservice"
       mc:Ignorable="d"
-      IsVisibleChanged="ChangePage"
+      IsVisibleChanged="Page_IsVisibleChanged"
       Title="ServicePage">
 
     <Grid>
@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -53,12 +54,12 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Image Grid.Column="0" Grid.RowSpan="4" Stretch="Uniform" Width="80" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Width="200" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill" HorizontalAlignment="Center" ImageFailed="Image_ImageFailed">
                             <Image.Source>
                                 <Binding Path="MainImagePath">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
-                                            Resources/service_logo.png
+                                            Resources/picture.png
                                         </ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
@@ -81,7 +82,7 @@
 
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <Button Name="EditButton" Content="редактировать" Margin="2" Click="EditButton_Click"/>
-                            <Button Name="DeleteButton" Content="удалить" Margin="2"/>
+                            <Button Name="DeleteButton" Content="удалить" Margin="2" Click="DeleteButton_Click"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -89,6 +90,20 @@
         </ListView>
 
         <Button Content="Добавить" Name="AddButton" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" Height="30" Margin="10"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,10,5" VerticalAlignment="Center">
+            <TextBlock Name="TBCount" FontSize="20" Height="20"/>
+            <TextBlock Name="TBAllRecords" FontSize="20" Height="20"/>
+            <Button Name="LeftDirButton" Content="&lt;" Width="20" Height="20" Click="LeftDirButton_Click"/>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp" Margin="5,0" BorderThickness="0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="20" Height="20" Click="RightDirButton_Click"/>
+        </StackPanel>
 
     </Grid>
 </Page>
