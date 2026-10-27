@@ -10,7 +10,6 @@ namespace Kudryavtseva_Autoservice
     {
         private Service _currentService = new Service();
 
-        // Конструктор, который принимает услугу (для редактирования) или null (для добавления)
         public AddEditPage(Service selectedService)
         {
             InitializeComponent();
@@ -31,11 +30,11 @@ namespace Kudryavtseva_Autoservice
             if (_currentService.Cost == 0)
                 errors.AppendLine("Укажите стоимость услуги");
 
-            if (_currentService.Discount == null)
-                errors.AppendLine("Укажите скидку");
+            if (_currentService.Duration < 0 || _currentService.Duration > 240)
+                errors.AppendLine("Длительность не может быть больше 240 минут или меньше 0");
 
-            if (string.IsNullOrWhiteSpace(_currentService.Duration))
-                errors.AppendLine("Укажите длительность услуги");
+            if (_currentService.DiscountInt < 0 || _currentService.DiscountInt > 100)
+                errors.AppendLine("Укажите скидку от 0 до 100");
 
             if (errors.Length > 0)
             {

@@ -25,7 +25,7 @@
         <TextBox Name="TBoxDuration" Grid.Column="1" Grid.Row="2" Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding Duration}"/>
 
         <TextBlock Text="Скидка" FontSize="15" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Name="TBoxDiscount" Grid.Column="1" Grid.Row="3" Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding Discount}"/>
+        <TextBox Name="TBoxDiscount" Grid.Column="1" Grid.Row="3" Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding DiscountInt}"/>
 
         <Button Name="SaveButton" Content="Сохранить" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SaveButton_Click" Width="150" Height="30" HorizontalAlignment="Center"/>
     </Grid>

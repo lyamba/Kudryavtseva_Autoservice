@@ -32,23 +32,23 @@ namespace Kudryavtseva_Autoservice
             {
 
             }
-            else if (ComboType.SelectedIndex == 1) // от 0 до 5%
+            else if (ComboType.SelectedIndex == 1)
             {
                 currentServices = currentServices.Where(p => p.Discount > 0 && p.Discount <= 0.05).ToList();
             }
-            else if (ComboType.SelectedIndex == 2) // от 5 до 15%
+            else if (ComboType.SelectedIndex == 2)
             {
                 currentServices = currentServices.Where(p => p.Discount > 0.05 && p.Discount <= 0.15).ToList();
             }
-            else if (ComboType.SelectedIndex == 3) // от 15 до 30%
+            else if (ComboType.SelectedIndex == 3)
             {
                 currentServices = currentServices.Where(p => p.Discount > 0.15 && p.Discount <= 0.30).ToList();
             }
-            else if (ComboType.SelectedIndex == 4) // от 30 до 70%
+            else if (ComboType.SelectedIndex == 4)
             {
                 currentServices = currentServices.Where(p => p.Discount > 0.30 && p.Discount <= 0.70).ToList();
             }
-            else if (ComboType.SelectedIndex == 5) // от 70 до 100%
+            else if (ComboType.SelectedIndex == 5)
             {
                 currentServices = currentServices.Where(p => p.Discount > 0.70 && p.Discount <= 1.0).ToList();
             }
@@ -224,6 +224,10 @@ namespace Kudryavtseva_Autoservice
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
             ((Image)sender).Source = new BitmapImage(new Uri("Resources/picture.png", UriKind.Relative));
+        }
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new SignUpPage((sender as Button).DataContext as Service));
         }
     }
 }

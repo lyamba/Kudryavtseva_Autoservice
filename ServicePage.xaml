@@ -76,13 +76,22 @@
                             <Run Text="{Binding Duration}"/>
                         </TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"
-                                   Text="{Binding Discount, StringFormat=*скидка {0:P0} }"
-                                   Opacity="{Binding Discount, TargetNullValue=0, FallbackValue=1}"
-                                   Visibility="{Binding Discount, TargetNullValue=Collapsed, FallbackValue=Visible}"/>
-
+                                Text="{Binding DiscountInt, StringFormat=*скидка {0} %}"
+                                   Opacity="{Binding Discount}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DiscountInt}" Value="0">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <Button Name="EditButton" Content="редактировать" Margin="2" Click="EditButton_Click"/>
                             <Button Name="DeleteButton" Content="удалить" Margin="2" Click="DeleteButton_Click"/>
+                            <Button Name="SignUpButton" Content="записать" Margin="2" Click="SignUpButton_Click"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

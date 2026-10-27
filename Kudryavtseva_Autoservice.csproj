@@ -116,6 +116,9 @@
     <Compile Include="ServicePhoto.cs">
       <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>KudryavtsevaModel.tt</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +169,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KudryavtsevaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="KudryavtsevaModel.edmx.diagram">
       <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
     </None>
@@ -172,22 +180,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\service_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="KudryavtsevaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>KudryavtsevaModel.Context.cs</LastGenOutput>
-      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="KudryavtsevaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
-      <LastGenOutput>KudryavtsevaModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\picture.png" />
     <Resource Include="Услуги автосервиса\diz.jpg" />
     <Resource Include="Услуги автосервиса\rulevoe-upravlenie-avtomobilya.jpg" />
@@ -210,6 +205,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="KudryavtsevaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+      <LastGenOutput>KudryavtsevaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KudryavtsevaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KudryavtsevaModel.edmx</DependentUpon>
+      <LastGenOutput>KudryavtsevaModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

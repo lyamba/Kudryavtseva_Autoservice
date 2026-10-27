@@ -19,11 +19,7 @@ namespace Kudryavtseva_Autoservice
             : base("name=КудрявцеваАвтосервисEntities")
         {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+
         private static КудрявцеваАвтосервисEntities _context;
 
         public static КудрявцеваАвтосервисEntities GetContext()
@@ -33,6 +29,12 @@ namespace Kudryavtseva_Autoservice
 
             return _context;
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ClientService> ClientService { get; set; }
         public virtual DbSet<DocumentByService> DocumentByService { get; set; }
