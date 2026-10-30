@@ -42,9 +42,15 @@ namespace Kudryavtseva_Autoservice
                 return;
             }
 
+            var allServices = КудрявцеваАвтосервисEntities.GetContext().Service.ToList();
+            var duplicateService = allServices.FirstOrDefault(p => p.Title == _currentService.Title && p.ID != _currentService.ID);
+            if (duplicateService != null)
+            {
+                MessageBox.Show("Уже существует такая услуга");
+                return;
+            }
             if (_currentService.ID == 0)
                 КудрявцеваАвтосервисEntities.GetContext().Service.Add(_currentService);
-
             try
             {
                 КудрявцеваАвтосервисEntities.GetContext().SaveChanges();

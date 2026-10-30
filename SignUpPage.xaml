@@ -44,7 +44,7 @@ Text="{Binding Duration}" IsEnabled="False"/>
         
         <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Время начала:" FontSize="15" VerticalAlignment="Center"/>
-            <TextBox Name="TBStart" Height="30" Width="100" FontSize="20" Margin="5,0,10,0" TextChanged="TBStart_TextChanged"/>
+            <TextBox Name="TBStart" Height="30" Width="100" FontSize="20" Margin="5,0,10,0" TextChanged="TBStart_TextChanged" PreviewTextInput="TBStart_PreviewTextInput"/>
             <TextBlock Text="Время окончания:" FontSize="15" VerticalAlignment="Center" Margin="10,0"/>
             <TextBox Name="TBEnd" Height="30" Width="100" FontSize="20" IsReadOnly="True"/>
         </StackPanel>

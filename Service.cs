@@ -43,5 +43,35 @@ namespace Kudryavtseva_Autoservice
         public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServicePhoto> ServicePhoto { get; set; }
+
+        public string OldCost
+        {
+            get
+            {
+                if (Discount > 0) return Cost.ToString();
+                else return "";
+            }
+        }
+        public decimal NewCost
+        {
+            get
+            {
+                if (Discount > 0)
+                {
+                    return (decimal)(Cost - (Cost * (decimal)Discount));
+                }
+                else return (decimal)Cost;
+            }
+        }
+        public System.Windows.Media.SolidColorBrush FonStyle
+        {
+            get
+            {
+                if (Discount > 0)
+                    return (System.Windows.Media.SolidColorBrush)new System.Windows.Media.BrushConverter().ConvertFromString("LightGreen");
+                else
+                    return (System.Windows.Media.SolidColorBrush)new System.Windows.Media.BrushConverter().ConvertFromString("White");
+            }
+        }
     }
 }

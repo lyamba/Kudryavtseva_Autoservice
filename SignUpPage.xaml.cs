@@ -95,5 +95,17 @@ namespace Kudryavtseva_Autoservice
                 }
             }
         }
+
+            private void TBStart_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsDigit(c) && c != ':')
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+        }
     }
 }
